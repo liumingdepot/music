@@ -1,0 +1,9 @@
+{
+  "name": "mlyc",
+  "dependencies": {
+    "@blueislandx/island-union-sdk": "^1.1.2"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
