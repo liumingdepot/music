@@ -17,7 +17,7 @@
 import {reactive, ref} from 'vue'
 import {musicPhbListAll, musicPhbListItem} from "../utils/server";
 
-const emit = defineEmits(['playItem'])
+const emit = defineEmits(['playList'])
 const paging = ref(null)
 
 const state = reactive({
@@ -26,18 +26,25 @@ const state = reactive({
 
 function queryList() {
   musicPhbListAll().then(res => {
-    console.log(res.child);
     paging.value.complete(res.child);
   })
 }
 
 function gotoItem(item) {
-  console.log(item);
   musicPhbListItem({
     id: item.sourceid
   }).then(res => {
-    console.log(res.musiclist);
-    // emit('playItem', item)
+    console.log(res);
+    emit('playList', {
+      index: 0,
+      list: res.musiclist.map(e=>{
+        return{
+          NAME:e.name,
+          ARTIST:e.artist,
+          DC_TARGETID:e.id
+        }
+      })
+    })
   })
 }
 </script>
@@ -45,7 +52,7 @@ function gotoItem(item) {
 <style lang="scss">
 .model3 {
   padding: 0 30rpx;
-  height: calc(100vh - var(--status-bar-height) - var(--window-bottom) - 100rpx - 64rpx);
+  height: calc(100vh - var(--status-bar-height) - var(--window-bottom) - 110rpx);
   // 隐藏滚动条
   ::-webkit-scrollbar {
     display: none;
@@ -55,9 +62,10 @@ function gotoItem(item) {
     margin-top: 10rpx;
 
     .disname {
-      font-size: 32rpx;
+      font-size: 46rpx;
       margin-bottom: 20rpx;
-      font-weight: bold;
+      color: #333;
+      font-weight: bolder;
     }
 
     .itemList {

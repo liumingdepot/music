@@ -18,7 +18,7 @@
 const model = defineModel();
 
 const navs = [
-  {name: '首页', id: 0},
+  {name: '搜索', id: 0},
   {name: '推荐', id: 1},
   {name: '排行榜', id: 2},
   {name: '歌单', id: 3},

@@ -18,7 +18,7 @@ export const musicPhbListAll = (params) => {
 // 排行榜详情
 export const musicPhbListItem = (params) => {
   return axios({
-    url: `http://kbangserver.kuwo.cn/ksong.s?from=pc&type=bang&id=${params.id}&pn=0&rn=1000`,
+    url: `http://kbangserver.kuwo.cn/ksong.s?from=pc&type=bang&id=${params.id}&pn=0&rn=30`,
   })
 }
 

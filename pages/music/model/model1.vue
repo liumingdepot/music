@@ -1,6 +1,6 @@
 <template>
   <view class="model1">
-    <input type="text" class="search" placeholder="请输入歌曲名" v-model="state.searchValue">
+    <input type="text" class="search" placeholder="请输入歌曲名" v-model="state.searchValue" @input="queryLists">
     <view class="list">
       <z-paging ref="paging" v-model="state.dataList" @query="queryList" :fixed="false">
         <view class="item" v-for="(item,index) in state.dataList" :key="index" @click="gotoPlay(item)">
@@ -19,13 +19,17 @@
 import {reactive, ref} from 'vue'
 import {musicList} from "../utils/server";
 
-const emit = defineEmits(['playItem'])
+const emit = defineEmits(['playList'])
 const paging = ref(null)
 
 const state = reactive({
   searchValue: '周杰伦',
   dataList: []
 })
+
+function queryLists(){
+  paging.value.reload()
+}
 
 function queryList(num) {
   musicList({
