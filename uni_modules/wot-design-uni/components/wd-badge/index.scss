@@ -17,6 +17,7 @@
 
   @include e(content) {
     display: inline-block;
+    box-sizing: content-box;
     height: $-badge-height;
     line-height: $-badge-height;
     padding: $-badge-padding;
@@ -31,6 +32,8 @@
 
     @include when(fixed) {
       position: absolute;
+      top: 0px;
+      right: 0px;
       transform: translateY(-50%) translateX(50%);
     }
 

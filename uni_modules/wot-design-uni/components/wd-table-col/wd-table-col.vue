@@ -1,6 +1,6 @@
 <template>
   <view
-    :class="`wd-table-col ${fixed ? 'wd-table-col--fixed' : ''} ${isLastFixed && isDef(table) && table.scrollLeft ? 'is-shadow' : ''}`"
+    :class="`wd-table-col ${fixed ? 'wd-table-col--fixed' : ''} ${isLastFixed && isDef(table) && table.state.scrollLeft ? 'is-shadow' : ''}`"
     :style="columnStyle"
   >
     <view
@@ -42,7 +42,7 @@ const sortDirection = ref<SortDirection>(0) // 排序方向
 // 是否开启斑马纹
 const stripe = computed(() => {
   if (isDef(table)) {
-    return table.stripe
+    return table.props.stripe
   } else {
     return false
   }
@@ -53,7 +53,7 @@ const stripe = computed(() => {
  */
 const border = computed(() => {
   if (isDef(table)) {
-    return table.border
+    return table.props.border
   } else {
     return false
   }
@@ -64,7 +64,7 @@ const border = computed(() => {
  */
 const ellipsis = computed(() => {
   if (isDef(table)) {
-    return table.ellipsis
+    return table.props.ellipsis
   } else {
     return false
   }
@@ -100,7 +100,7 @@ const columnStyle = computed(() => {
  */
 const cellStyle = computed(() => {
   let style: CSSProperties = {}
-  const rowHeight: string | number = isDef(table) ? table.rowHeight : '80rpx' // 自定义行高
+  const rowHeight: string | number = isDef(table) && isDef(table.props) ? table.props.rowHeight : 50 // 自定义行高
   if (isDef(rowHeight)) {
     style['height'] = addUnit(rowHeight)
   }
@@ -112,10 +112,11 @@ const cellStyle = computed(() => {
 
 // 列数据
 const column = computed(() => {
-  if (!isDef(table)) {
+  if (!isDef(table) || !isDef(table.props) || !isDef(table.props.data) || !Array.isArray(table.props.data)) {
     return []
   }
-  const column: any[] = table.data.map((item) => {
+
+  const column: any[] = table.props.data.map((item) => {
     return item[props.prop]
   })
   return column
@@ -134,10 +135,10 @@ function handleRowClick(index: number) {
 
 // 行数据
 function getScope(index: number) {
-  if (!isDef(table)) {
+  if (!isDef(table) || !isDef(table.props) || !isDef(table.props.data) || !Array.isArray(table.props.data)) {
     return {}
   }
-  return table.data[index] || {}
+  return table.props.data[index] || {}
 }
 
 defineExpose({ sortDirection: sortDirection })

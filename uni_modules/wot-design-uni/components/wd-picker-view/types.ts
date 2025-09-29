@@ -31,6 +31,10 @@ export const pickerViewProps = {
    */
   columnsHeight: makeNumberProp(217),
   /**
+   * picker item的高度
+   */
+  itemHeight: makeNumberProp(35),
+  /**
    * 选项对象中，value对应的 key
    */
   valueKey: makeStringProp('value'),
@@ -71,6 +75,7 @@ export type PickerViewExpose = {
   getColumnIndex: (columnIndex: number) => number
   getLabels: () => string[]
   getSelectedIndex: () => number[]
+  resetColumns: (columns: (string | number | string[] | number[] | ColumnItem | ColumnItem[])[]) => void
 }
 
 export type PickerViewProps = ExtractPropTypes<typeof pickerViewProps>

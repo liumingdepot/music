@@ -42,6 +42,7 @@ export default {
 }
 </script>
 <script lang="ts" setup>
+import wdIcon from '../wd-icon/wd-icon.vue'
 import { computed } from 'vue'
 import { useParent } from '../composables/useParent'
 import { STEPS_KEY } from '../wd-steps/types'
@@ -75,7 +76,7 @@ const rootStyle = computed(() => {
       style['width'] = space || 100 / steps.children.length + '%'
     }
   }
-  return `${objToStyle(style)};${props.customStyle}`
+  return `${objToStyle(style)}${props.customStyle}`
 })
 
 const canAlignCenter = computed(() => {

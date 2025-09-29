@@ -1,5 +1,5 @@
 import type { ComponentPublicInstance, ExtractPropTypes, PropType } from 'vue'
-import { baseProps, makeArrayProp, makeBooleanProp, makeNumberProp, makeRequiredProp, makeStringProp } from '../common/props'
+import { baseProps, makeArrayProp, makeBooleanProp, makeNumberProp, makeRequiredProp, makeStringProp, numericProp } from '../common/props'
 import type { FormItemRule } from '../wd-form/types'
 
 export const colPickerProps = {
@@ -117,6 +117,14 @@ export const colPickerProps = {
    */
   rules: makeArrayProp<FormItemRule>(),
   /**
+   * 底部条宽度，单位像素
+   */
+  lineWidth: numericProp,
+  /**
+   * 底部条高度，单位像素
+   */
+  lineHeight: numericProp,
+  /**
    * label 外部自定义样式
    */
   customViewClass: makeStringProp(''),
@@ -124,7 +132,15 @@ export const colPickerProps = {
    * value 外部自定义样式
    */
   customLabelClass: makeStringProp(''),
-  customValueClass: makeStringProp('')
+  customValueClass: makeStringProp(''),
+  /**
+   * 是否从页面中脱离出来，用于解决各种 fixed 失效问题 (H5: teleport, APP: renderjs, 小程序: root-portal)
+   */
+  rootPortal: makeBooleanProp(false),
+  /**
+   * 必填标记位置，可选值：before、after
+   */
+  markerSide: makeStringProp<'before' | 'after'>('before')
 }
 
 export type ColPickerProps = ExtractPropTypes<typeof colPickerProps>

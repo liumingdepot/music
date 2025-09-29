@@ -15,7 +15,7 @@
       class="wd-tag__add-text"
       :placeholder="translate('placeholder')"
       type="text"
-      focus="true"
+      :focus="true"
       v-model="dynamicValue"
       @blur="handleBlur"
       @confirm="handleConfirm"
@@ -41,6 +41,7 @@ export default {
 }
 </script>
 <script lang="ts" setup>
+import wdIcon from '../wd-icon/wd-icon.vue'
 import { objToStyle } from '../common/util'
 import { computed, ref, watch } from 'vue'
 import { useTranslate } from '../composables/useTranslate'
@@ -72,7 +73,7 @@ watch(
     if (type.indexOf(newValue) === -1) console.error(`type must be one of ${type.toString()}`)
     computeTagClass()
   },
-  { deep: true, immediate: true }
+  { immediate: true }
 )
 
 watch(
@@ -80,7 +81,7 @@ watch(
   () => {
     computeTagClass()
   },
-  { deep: true, immediate: true }
+  { immediate: true }
 )
 
 const rootClass = computed(() => {
@@ -95,7 +96,7 @@ const rootStyle = computed(() => {
   if (props.bgColor) {
     rootStyle['border-color'] = props.bgColor
   }
-  return `${objToStyle(rootStyle)};${props.customStyle}`
+  return `${objToStyle(rootStyle)}${props.customStyle}`
 })
 
 const textStyle = computed(() => {

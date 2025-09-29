@@ -1,5 +1,5 @@
 {
-  "name": "机动车排放检验小程序",
+  "name": "suoying",
   "appid": "__UNI__F2C55AB",
   "description": "",
   "versionName": "1.0.0",
@@ -76,6 +76,19 @@
   },
   "uniStatistics": {
     "enable": false
+  },
+  "h5": {
+    "devServer": {
+      "proxy": {
+        "/kuwo": {
+          "target": "https://www.kuwo.cn",
+          "changeOrigin": true,
+          "pathRewrite": {
+            "^/kuwo": ""
+          }
+        }
+      }
+    }
   },
   "vueVersion": "3"
 }

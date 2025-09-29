@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import { baseProps, makeBooleanProp, makeStringProp } from '../common/props'
+import { baseProps, makeBooleanProp, makeStringProp, numericProp } from '../common/props'
 import type { BadgeProps, BadgeType } from '../wd-badge/types'
 
 export type LinkType = 'navigateTo' | 'switchTab' | 'reLaunch' | 'redirectTo'
@@ -36,20 +36,26 @@ export const gridItemProps = {
   linkType: makeStringProp<LinkType>('navigateTo'),
   /**
    * 是否开启 GridItem 内容插槽
+   * @deprecated 已废弃，直接使用默认插槽即可
    */
   useSlot: makeBooleanProp(false),
   /**
    * 是否开启 GridItem icon 插槽
+   * @deprecated 已废弃，组件会自动根据 icon 插槽是否存在来显示
    */
   useIconSlot: makeBooleanProp(false),
   /**
    * 是否开启 GridItem text 内容插槽
+   * @deprecated 已废弃，组件会自动根据 text 插槽是否存在来显示
    */
   useTextSlot: makeBooleanProp(false),
   /**
    * 是否显示图标右上角小红点
    */
-  isDot: Boolean,
+  isDot: {
+    type: Boolean,
+    default: undefined
+  },
   /**
    * 图标右上角显示的 badge 类型，可选值：primary / success / warning / danger / info
    */
@@ -57,7 +63,7 @@ export const gridItemProps = {
   /**
    * 图标右上角 badge 显示值
    */
-  value: Number,
+  value: numericProp,
   /**
    * 图标右上角 badge 最大值，超过最大值会显示 '{max}+'，要求 value 是 Number 类型
    */

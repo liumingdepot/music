@@ -1,0 +1,41 @@
+<template>
+  <view class="model3">
+    model3
+  </view>
+</template>
+
+<script setup>
+import {reactive, ref} from 'vue'
+import {videoList} from "../utils/server";
+
+const emit = defineEmits(['playItem'])
+const paging = ref(null)
+
+const state = reactive({
+  navIndex: 0,
+  searchValue: '周杰伦',
+  dataList: []
+})
+
+function queryList(num) {
+  if (state.navIndex == 0) {
+    videoList({
+      key: state.searchValue,
+      num: num - 1
+    }).then(res => {
+      console.log(res);
+      paging.value.complete(res.abslist);
+    })
+  }
+}
+
+function gotoPlay(item) {
+  emit('playItem', item)
+}
+</script>
+
+<style lang="scss">
+.model3 {
+  height: 100vh;
+}
+</style>
