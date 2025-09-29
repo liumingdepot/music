@@ -6,7 +6,7 @@
 
 <script setup>
 import {reactive, ref} from 'vue'
-import {videoList} from "../utils/server";
+import {musicListAll} from "../utils/server";
 
 const emit = defineEmits(['playItem'])
 const paging = ref(null)

@@ -1,41 +1,82 @@
 <template>
   <view class="model3">
-    model3
+    <z-paging ref="paging" v-model="state.dataList" @query="queryList" :fixed="false">
+      <view class="item" v-for="(item,index) in state.dataList" :key="index">
+        <view class="disname">{{ item.disname }}</view>
+        <view class="itemList">
+          <view class="item2" v-for="(item2,index2) in item.child" :key="index2" @click="gotoItem(item2)">
+            <image :src="item2.pic5" class="pic"></image>
+          </view>
+        </view>
+      </view>
+    </z-paging>
   </view>
 </template>
 
 <script setup>
 import {reactive, ref} from 'vue'
-import {videoList} from "../utils/server";
+import {musicPhbListAll, musicPhbListItem} from "../utils/server";
 
 const emit = defineEmits(['playItem'])
 const paging = ref(null)
 
 const state = reactive({
-  navIndex: 0,
-  searchValue: '周杰伦',
   dataList: []
 })
 
-function queryList(num) {
-  if (state.navIndex == 0) {
-    videoList({
-      key: state.searchValue,
-      num: num - 1
-    }).then(res => {
-      console.log(res);
-      paging.value.complete(res.abslist);
-    })
-  }
+function queryList() {
+  musicPhbListAll().then(res => {
+    console.log(res.child);
+    paging.value.complete(res.child);
+  })
 }
 
-function gotoPlay(item) {
-  emit('playItem', item)
+function gotoItem(item) {
+  console.log(item);
+  musicPhbListItem({
+    id: item.sourceid
+  }).then(res => {
+    console.log(res.musiclist);
+    // emit('playItem', item)
+  })
 }
 </script>
 
 <style lang="scss">
 .model3 {
-  height: 100vh;
+  padding: 0 30rpx;
+  height: calc(100vh - var(--status-bar-height) - var(--window-bottom) - 100rpx - 64rpx);
+  // 隐藏滚动条
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .item {
+    margin-top: 10rpx;
+
+    .disname {
+      font-size: 32rpx;
+      margin-bottom: 20rpx;
+      font-weight: bold;
+    }
+
+    .itemList {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10rpx;
+    }
+
+    .item2 {
+      width: 100%;
+      height: 220rpx;
+      margin-right: 10rpx;
+
+      .pic {
+        width: 100%;
+        height: 100%;
+        border-radius: 10rpx;
+      }
+    }
+  }
 }
 </style>

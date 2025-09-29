@@ -17,31 +17,31 @@
 
 <script setup>
 import {reactive, ref} from 'vue'
-import {videoList} from "../utils/server";
+import {musicList} from "../utils/server";
 
 const emit = defineEmits(['playItem'])
 const paging = ref(null)
 
 const state = reactive({
-  navIndex: 0,
   searchValue: '周杰伦',
   dataList: []
 })
 
 function queryList(num) {
-  if (state.navIndex == 0) {
-    videoList({
-      key: state.searchValue,
-      num: num - 1
-    }).then(res => {
-      console.log(res);
-      paging.value.complete(res.abslist);
-    })
-  }
+  musicList({
+    key: state.searchValue,
+    num: num - 1
+  }).then(res => {
+    paging.value.complete(res.abslist);
+  })
 }
 
 function gotoPlay(item) {
-  emit('playItem', item)
+  const index = state.dataList.findIndex(e=>e.DC_TARGETID==item.DC_TARGETID)
+  emit('playList', {
+    index,
+    list: state.dataList
+  })
 }
 </script>
 
