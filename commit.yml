@@ -2,10 +2,28 @@
 branches: {
   }
 fileChange:
-  /.gitignore:
+  /unpackage:
     newFile: null
-    oldFile: !uuid 'b8d3642e69d10b202ae3bed57ddf9709d7ef597f'
-gitCommitId: !uuid 'b33c5d5f9bc10248cfd660e6f2328946559e804a'
+    oldFile: !uuid 'b62964a23c029480e4f2a907ffe4347ae7717034'
+  /unpackage/dist:
+    newFile: null
+    oldFile: !uuid '2d11e527bb29abc2a8e36b0095a96613d0af5747'
+  /unpackage/dist/cache:
+    newFile: null
+    oldFile: !uuid '2c89f72217947e1d36b52488e99dbdd47693e763'
+  /unpackage/dist/cache/.vite:
+    newFile: null
+    oldFile: !uuid '28c074269aee8070b4250287725e43712258fb38'
+  /unpackage/dist/cache/.vite/deps:
+    newFile: null
+    oldFile: !uuid '775d9b3edcda383c58199fc63cdad086b5ea2a08'
+  /unpackage/dist/cache/.vite/deps/_metadata.json:
+    newFile: null
+    oldFile: !uuid 'c59c8d7aa492a2d23c85ab49d611ab15ad993a0a'
+  /unpackage/dist/cache/.vite/deps/package.json:
+    newFile: null
+    oldFile: !uuid '3dbc1ca591c0557e35b6004aeba250e6a70b56e3'
+gitCommitId: !uuid '941a135cfcb0d56826f682fe70a8028a64f3efb3'
 renames: {
   }
-revisionId: 7
+revisionId: 8
