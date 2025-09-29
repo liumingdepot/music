@@ -1,17 +1,20 @@
 <script>
-	export default {
-		onLaunch: function() {
-			console.log('App Launch')
-		},
-		onShow: function() {
-			console.log('App Show')
-		},
-		onHide: function() {
-			console.log('App Hide')
-		}
-	}
+export default {
+  onLaunch: function () {
+  },
+  onShow: function () {
+  },
+  onHide: function () {
+  }
+}
 </script>
 
 <style>
-	/*每个页面公共css */
+page {
+  background-color: #F4F6FB;
+}
+.wd-picker{
+  border-radius: 12rpx;
+  overflow: hidden;
+}
 </style>

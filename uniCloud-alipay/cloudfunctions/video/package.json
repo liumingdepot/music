@@ -1,7 +1,0 @@
-{
-  "name": "video",
-  "dependencies": {},
-  "extensions": {
-    "uni-cloud-jql": {}
-  }
-}
