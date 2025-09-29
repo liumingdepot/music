@@ -3,9 +3,9 @@ branches: {
   }
 fileChange:
   /.gitignore:
-    newFile: !uuid 'b8d3642e69d10b202ae3bed57ddf9709d7ef597f'
-    oldFile: !uuid '4b4f1fa715a30eb42e5afe4018cc9e02044e7279'
-gitCommitId: !uuid 'd34eed4029e774bd3b982d75fc86157f462fb39f'
+    newFile: null
+    oldFile: !uuid 'b8d3642e69d10b202ae3bed57ddf9709d7ef597f'
+gitCommitId: !uuid 'b33c5d5f9bc10248cfd660e6f2328946559e804a'
 renames: {
   }
-revisionId: 6
+revisionId: 7
