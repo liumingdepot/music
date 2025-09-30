@@ -2,46 +2,31 @@
 branches: {
   }
 fileChange:
-  /pages:
-    newFile: !uuid '2a25b06b63d794e65db7845c685421ae21b7606b'
-    oldFile: !uuid 'c76249d979e0ee33628954383dc9776537041303'
-  /pages/music:
-    newFile: !uuid 'c0850fced0ab146941d0a0a111e2e8950cfdef08'
-    oldFile: !uuid '109b0cdf51a5a6ab245a7da4a1fe58ce06f5efcb'
-  /pages/music/model:
-    newFile: !uuid 'c8c76cafa2b188d88a70000aa23628b92d8d501d'
-    oldFile: !uuid 'a34488265a65d7b71b2618a054b5ed18f1e487b2'
-  /pages/music/model/components:
-    newFile: !uuid 'ca80a03f122d36bbe1c30533d295e5083894d50e'
-    oldFile: !uuid '0f5e1b634c4899c691a5ce5ebd8b0ccca3e3818d'
-  /pages/music/model/components/musicList.vue:
-    newFile: !uuid '3543e0ccd51957bdf8a914fadbe639390aa5a67d'
-    oldFile: null
-  /pages/music/model/components/progress.vue:
-    newFile: !uuid '6787a01b90a65a975bade052f325f7fbc74b2969'
-    oldFile: null
-  /pages/music/model/header.vue:
-    newFile: !uuid 'abb78e4ed05233bcb059c825d4baa969209d1638'
-    oldFile: !uuid 'c38aa94f13623fa4b37dc2df00309c26301e5f90'
-  /pages/music/model/model1.vue:
-    newFile: !uuid 'ccde52f04ecace55ee3f8a537bc53a2d7c996fe9'
-    oldFile: !uuid '646c5c6b150e8c659f4bf3e2388548d4e90489c4'
-  /static:
-    newFile: !uuid 'b39ad774e73b8ac64a8328602fca9d34d3fcf836'
-    oldFile: !uuid '4819c2e9e97f3d9e9422f27838f6262bbd4af841'
-  /static/music:
-    newFile: !uuid 'fa83ebc2fc72042253010f174703ca84c2416d48'
-    oldFile: !uuid '8c8c5192e6713611185d9495646254de76f45f85'
-  /static/music/ii.png:
-    newFile: !uuid '9f25af60745bab9e982e2fb0992330bd2da7a3f3'
-    oldFile: null
-  /static/music/iis.png:
-    newFile: !uuid '0956db31af3765302c60ee27637752b38eb3793e'
-    oldFile: null
-  /static/music/musicBg.png:
-    newFile: !uuid '9a0a4fabf1d5556cba33913147bb582dd899938a'
-    oldFile: null
-gitCommitId: !uuid '9bcd688745217410520384993413925455d422ab'
+  /.idea:
+    newFile: !uuid '64640e6674ca8fffb8a6d32d841e3a70e95d0696'
+    oldFile: !uuid '2772cc7b43f872d0a210ae5998be7868c0126809'
+  /.idea/.gitignore:
+    newFile: null
+    oldFile: !uuid '35410cacdc5e87f985c93a96520f5e11a5c822e4'
+  /unpackage:
+    newFile: !uuid 'b62964a23c029480e4f2a907ffe4347ae7717034'
+    oldFile: !uuid 'f217e414b1f67c910ec5ec331b2eac840a29d949'
+  /unpackage/dist:
+    newFile: !uuid '2d11e527bb29abc2a8e36b0095a96613d0af5747'
+    oldFile: !uuid '3ec25d46de600c061300625c54fd01ccef47dffa'
+  /unpackage/dist/cache:
+    newFile: !uuid '2c89f72217947e1d36b52488e99dbdd47693e763'
+    oldFile: !uuid '5c73a43c5e1280a99afa2524b14254ef0394313f'
+  /unpackage/dist/cache/.vite:
+    newFile: !uuid '28c074269aee8070b4250287725e43712258fb38'
+    oldFile: !uuid '87a25dc00493ebb9aed55da3250484796896af32'
+  /unpackage/dist/cache/.vite/deps:
+    newFile: !uuid '775d9b3edcda383c58199fc63cdad086b5ea2a08'
+    oldFile: !uuid '10f07754ba9960a94b540a56b337c669e6d69837'
+  /unpackage/dist/cache/.vite/deps/_metadata.json:
+    newFile: !uuid 'c59c8d7aa492a2d23c85ab49d611ab15ad993a0a'
+    oldFile: !uuid '892806ecc553b6811fea9eb812175c799aad7f98'
+gitCommitId: !uuid 'a346d84e8a2aaf532d39368949d2e37da22524d5'
 renames: {
   }
-revisionId: 16
+revisionId: 17
