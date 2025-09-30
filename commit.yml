@@ -2,85 +2,37 @@
 branches: {
   }
 fileChange:
-  /.idea:
-    newFile: !uuid '2772cc7b43f872d0a210ae5998be7868c0126809'
-    oldFile: null
-  /.idea/.gitignore:
-    newFile: !uuid '35410cacdc5e87f985c93a96520f5e11a5c822e4'
-    oldFile: null
-  /.idea/UniappTool.xml:
-    newFile: !uuid 'adde6617148ad0270e6363be45ffdac1b0a9a29f'
-    oldFile: null
-  /.idea/inspectionProfiles:
-    newFile: !uuid 'f2474cc0c10a12bcd7beb2dd6680c6cfc9aa4cb3'
-    oldFile: null
-  /.idea/inspectionProfiles/Project_Default.xml:
-    newFile: !uuid 'ae438d61883e42de3ab6434f55e62fc4bf6b3e4b'
-    oldFile: null
-  /.idea/material_theme_project_new.xml:
-    newFile: !uuid 'a14469ace8d6fea87185ddc025653ff66c09299b'
-    oldFile: null
-  /.idea/modules.xml:
-    newFile: !uuid 'ab8ef976008df20fdbe3b33549a893c80f221857'
-    oldFile: null
-  /.idea/music.iml:
-    newFile: !uuid '24643cc37449b4bde54411a80b8ed61258225e34'
-    oldFile: null
-  /.idea/vcs.xml:
-    newFile: !uuid '35eb1ddfbbc029bcab630581847471d7f238ec53'
-    oldFile: null
   /pages:
-    newFile: !uuid 'e8995722753c5bc8100769998cd80a63e04d8d3a'
-    oldFile: !uuid '04a20f7d6bd8d9a8ad82f4eefecdcffad1aef68d'
+    newFile: !uuid '4f90f3b5b7850b4c8e3b4477044b20495b4b50d5'
+    oldFile: !uuid 'e8995722753c5bc8100769998cd80a63e04d8d3a'
   /pages/music:
-    newFile: !uuid '0d3998284fc38d8347463e3b4c62c9694d20cf35'
-    oldFile: !uuid '39e944b9a21645a388407f877f8883ccbd3d95dc'
+    newFile: !uuid '430b8ea17ebee7022be36af60f79bd1f3900afdf'
+    oldFile: !uuid '0d3998284fc38d8347463e3b4c62c9694d20cf35'
   /pages/music/model:
-    newFile: !uuid '0eb6ed7eed5c1e9cad76fd9b3fe0b36159be2046'
-    oldFile: !uuid 'adb567e24263d4b3f611a97e23d11409e859dfce'
-  /pages/music/model/header.vue:
-    newFile: !uuid 'c38aa94f13623fa4b37dc2df00309c26301e5f90'
-    oldFile: !uuid '5e949ed6340040b350065f1b3af485778a5e6083'
-  /pages/music/model/model1.vue:
-    newFile: !uuid '646c5c6b150e8c659f4bf3e2388548d4e90489c4'
-    oldFile: !uuid '6d7152d89fa9fc916a1aa059637d9eaf27eb4203'
+    newFile: !uuid '24ffcce175acb5aeac1520b62f9a936a9c684fd5'
+    oldFile: !uuid '0eb6ed7eed5c1e9cad76fd9b3fe0b36159be2046'
+  /pages/music/model/model2.vue:
+    newFile: !uuid 'e9fe2a7331d45de84de4469fa12df4d7188ea486'
+    oldFile: !uuid '2dbb7a1522531be17d4ebca5360e9d00a295544d'
   /pages/music/model/model3.vue:
-    newFile: !uuid '808d9d9c9d9ddccd4dc581195c95a29ac93340b8'
-    oldFile: !uuid '33f28e42d2d06197864c29eb19a1d5e27ce9c474'
+    newFile: !uuid '52a28d460129cc68d39fdc1f2d4b4b62bd0dabab'
+    oldFile: !uuid '808d9d9c9d9ddccd4dc581195c95a29ac93340b8'
+  /pages/music/model/model4.vue:
+    newFile: !uuid 'cf0d4a6e18c6df9d7873eca9a848064d572a22c7'
+    oldFile: !uuid '4eb2a9f83ce386e399bb3eeea15d8cbc9703f05e'
   /pages/music/model/music.vue:
-    newFile: !uuid '64bed3cec048e9f3dd8c313ff791f07bcef998b8'
-    oldFile: !uuid 'e2b590fedc8e3924ad64d13f182e105962d3c494'
+    newFile: !uuid '1e41b1da07b37ae9ecb7b42658d377cab1110660'
+    oldFile: !uuid '64bed3cec048e9f3dd8c313ff791f07bcef998b8'
   /pages/music/music.vue:
-    newFile: !uuid 'decb206e9bf56705d2155cf9f6c6b8471a9b09b8'
-    oldFile: !uuid '6988472420b139aad666ae409610aa2eada4f0a4'
+    newFile: !uuid '88aa6a2c2efa41496623c18a7b797445c8408277'
+    oldFile: !uuid 'decb206e9bf56705d2155cf9f6c6b8471a9b09b8'
   /pages/music/utils:
-    newFile: !uuid '35396f6fe8dcc7dd5c44489f7ae36d23c68de740'
-    oldFile: !uuid '76af814985806859a97d87a5ad4ecca9ea9ea7db'
-  /pages/music/utils/server.js:
-    newFile: !uuid '84d18ce976501b39c4daa4d5223b16bb0431025a'
-    oldFile: !uuid 'a534c5d8a2d1a76c40f75d88dcd91191ac5d3727'
-  /unpackage:
-    newFile: !uuid 'f217e414b1f67c910ec5ec331b2eac840a29d949'
-    oldFile: null
-  /unpackage/dist:
-    newFile: !uuid '3ec25d46de600c061300625c54fd01ccef47dffa'
-    oldFile: null
-  /unpackage/dist/cache:
-    newFile: !uuid '5c73a43c5e1280a99afa2524b14254ef0394313f'
-    oldFile: null
-  /unpackage/dist/cache/.vite:
-    newFile: !uuid '87a25dc00493ebb9aed55da3250484796896af32'
-    oldFile: null
-  /unpackage/dist/cache/.vite/deps:
-    newFile: !uuid '10f07754ba9960a94b540a56b337c669e6d69837'
-    oldFile: null
-  /unpackage/dist/cache/.vite/deps/_metadata.json:
-    newFile: !uuid '892806ecc553b6811fea9eb812175c799aad7f98'
-    oldFile: null
-  /unpackage/dist/cache/.vite/deps/package.json:
-    newFile: !uuid '3dbc1ca591c0557e35b6004aeba250e6a70b56e3'
-    oldFile: null
-gitCommitId: !uuid '1c2c831e9ba36f098b4cd1605c691fa89a9e8004'
+    newFile: !uuid 'ffbaf9b7959c8271e5999920e4f93814bc744f34'
+    oldFile: !uuid '35396f6fe8dcc7dd5c44489f7ae36d23c68de740'
+  /pages/music/utils/kwDES.js:
+    newFile: !uuid 'ea50bfddb08f4396ecf47a91323468f3d74333cc'
+    oldFile: !uuid '0ac0b45961c9b7bbc7ebf6af324ba143c31ebbe3'
+gitCommitId: !uuid 'fa7b0526293f51fca4a8f696fd8aeff135800b88'
 renames: {
   }
-revisionId: 12
+revisionId: 13
