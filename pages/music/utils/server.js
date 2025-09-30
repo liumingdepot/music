@@ -9,7 +9,7 @@ export const musicList = (params) => {
 }
 
 // 排行榜
-export const musicPhbListAll = (params) => {
+export const musicPhbListAll = () => {
   return axios({
     url: `http://wapi.kuwo.cn/api/pc/bang/list`,
   })
@@ -19,6 +19,41 @@ export const musicPhbListAll = (params) => {
 export const musicPhbListItem = (params) => {
   return axios({
     url: `http://kbangserver.kuwo.cn/ksong.s?from=pc&type=bang&id=${params.id}&pn=0&rn=30`,
+  })
+}
+
+//  推荐
+export const musicTjList = () => {
+  return axios({
+    url: `http://wapi.kuwo.cn/api/pc/classify/playlist/getRcmPlayList?pn=1&rn=99&order=hot`,
+  })
+}
+
+//  推荐详情
+export const musicTjListItem = (params) => {
+  return axios({
+    url: `https://mobilist.kuwo.cn/list.s?type=songlist&id=${params.id}&pn=0&rn=1000`,
+  })
+}
+
+//  推荐标签
+export const musictagList = () => {
+  return axios({
+    url: `https://wapi.kuwo.cn/api/pc/classify/playlist/getTagList`,
+  })
+}
+
+//  推荐标签详情
+export const musictagListDetail = (params) => {
+  return axios({
+    url: `http://wapi.kuwo.cn/api/pc/classify/playlist/getTagPlayList?pn=1&rn=30&id=${params.id}`,
+  })
+}
+
+//  推荐标签详情
+export const musictagListItem = (params) => {
+  return axios({
+    url: `https://mobilist.kuwo.cn/list.s?type=songlist&id=${params.id}&pn=0&rn=1000`,
   })
 }
 
