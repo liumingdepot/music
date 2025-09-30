@@ -3,36 +3,33 @@ branches: {
   }
 fileChange:
   /pages:
-    newFile: !uuid '4f90f3b5b7850b4c8e3b4477044b20495b4b50d5'
-    oldFile: !uuid 'e8995722753c5bc8100769998cd80a63e04d8d3a'
+    newFile: !uuid 'fa55319210a8809e7f4d32f94e962b75d014ac47'
+    oldFile: !uuid '4f90f3b5b7850b4c8e3b4477044b20495b4b50d5'
   /pages/music:
-    newFile: !uuid '430b8ea17ebee7022be36af60f79bd1f3900afdf'
-    oldFile: !uuid '0d3998284fc38d8347463e3b4c62c9694d20cf35'
+    newFile: !uuid 'f125a78edcbebccfb2028f111d7bf2fb1c3e4824'
+    oldFile: !uuid '430b8ea17ebee7022be36af60f79bd1f3900afdf'
   /pages/music/model:
-    newFile: !uuid '24ffcce175acb5aeac1520b62f9a936a9c684fd5'
-    oldFile: !uuid '0eb6ed7eed5c1e9cad76fd9b3fe0b36159be2046'
-  /pages/music/model/model2.vue:
-    newFile: !uuid 'e9fe2a7331d45de84de4469fa12df4d7188ea486'
-    oldFile: !uuid '2dbb7a1522531be17d4ebca5360e9d00a295544d'
-  /pages/music/model/model3.vue:
-    newFile: !uuid '52a28d460129cc68d39fdc1f2d4b4b62bd0dabab'
-    oldFile: !uuid '808d9d9c9d9ddccd4dc581195c95a29ac93340b8'
-  /pages/music/model/model4.vue:
-    newFile: !uuid 'cf0d4a6e18c6df9d7873eca9a848064d572a22c7'
-    oldFile: !uuid '4eb2a9f83ce386e399bb3eeea15d8cbc9703f05e'
-  /pages/music/model/music.vue:
-    newFile: !uuid '1e41b1da07b37ae9ecb7b42658d377cab1110660'
-    oldFile: !uuid '64bed3cec048e9f3dd8c313ff791f07bcef998b8'
-  /pages/music/music.vue:
-    newFile: !uuid '88aa6a2c2efa41496623c18a7b797445c8408277'
-    oldFile: !uuid 'decb206e9bf56705d2155cf9f6c6b8471a9b09b8'
-  /pages/music/utils:
-    newFile: !uuid 'ffbaf9b7959c8271e5999920e4f93814bc744f34'
-    oldFile: !uuid '35396f6fe8dcc7dd5c44489f7ae36d23c68de740'
-  /pages/music/utils/kwDES.js:
-    newFile: !uuid 'ea50bfddb08f4396ecf47a91323468f3d74333cc'
-    oldFile: !uuid '0ac0b45961c9b7bbc7ebf6af324ba143c31ebbe3'
-gitCommitId: !uuid 'fa7b0526293f51fca4a8f696fd8aeff135800b88'
+    newFile: !uuid 'a34488265a65d7b71b2618a054b5ed18f1e487b2'
+    oldFile: !uuid '24ffcce175acb5aeac1520b62f9a936a9c684fd5'
+  /pages/music/model/components:
+    newFile: !uuid '0f5e1b634c4899c691a5ce5ebd8b0ccca3e3818d'
+    oldFile: null
+  /pages/music/model/components/bing-lyric:
+    newFile: !uuid '5a335f4bad8279d7acecb84c7acde638e6dddfec'
+    oldFile: null
+  /pages/music/model/components/bing-lyric/bing-lyric.vue:
+    newFile: !uuid '964c8c0d8a1faf66b74bcf40906bb9676b0eb0aa'
+    oldFile: null
+  /pages/music/model/components/bing-lyric/btn.png:
+    newFile: !uuid '7c1fc12bff363db94d04ca2ac73fce80e821043c'
+    oldFile: null
+  /pages/music/model/components/cover-img-background.vue:
+    newFile: !uuid '38f7cccdfc36d034257e05fcb03925818ca7717d'
+    oldFile: null
+  /pages/music/model/components/musicGc.vue:
+    newFile: !uuid '69893b94d20a79fedb42c225f1ef40b832daae13'
+    oldFile: null
+gitCommitId: !uuid '40d8675a67ddc02f1ce7f5fa4333e82108b30fde'
 renames: {
   }
-revisionId: 13
+revisionId: 14
