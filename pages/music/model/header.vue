@@ -7,7 +7,7 @@
           :key="item.id"
           class="item"
           :class="{active: model === item.id}"
-          @click="model = item.id">
+          @tap="model = item.id">
         {{ item.name }}
       </view>
     </view>
@@ -40,10 +40,12 @@ const navs = [
 
     .item {
       font-size: 28rpx;
+      color: #666;
     }
 
     .active {
       font-size: 30rpx;
+      color: #333;
       font-weight: bolder;
     }
   }

@@ -3,7 +3,7 @@
     <input type="text" class="search" placeholder="请输入歌曲名" v-model="state.searchValue" @input="queryLists">
     <view class="list">
       <z-paging ref="paging" v-model="state.dataList" @query="queryList" :fixed="false">
-        <view class="item" v-for="(item,index) in state.dataList" :key="index" @click="gotoPlay(item)">
+        <view class="item" v-for="(item,index) in state.dataList" :key="index" @tap="gotoPlay(item)">
           <view>
             <view>{{ item.SONGNAME }}</view>
             <view class="ARTIST">{{ item.ARTIST }} · {{ item.ALBUM }}</view>
@@ -44,7 +44,12 @@ function gotoPlay(item) {
   const index = state.dataList.findIndex(e=>e.DC_TARGETID==item.DC_TARGETID)
   emit('playList', {
     index,
-    list: state.dataList
+    list: state.dataList.map(e=>{
+      return{
+        ...e,
+        web_albumpic_short:'https://img2.kuwo.cn/star/albumcover/' + e.web_albumpic_short
+      }
+    })
   })
 }
 </script>
