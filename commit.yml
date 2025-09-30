@@ -3,33 +3,33 @@ branches: {
   }
 fileChange:
   /pages:
-    newFile: !uuid 'fa55319210a8809e7f4d32f94e962b75d014ac47'
-    oldFile: !uuid '4f90f3b5b7850b4c8e3b4477044b20495b4b50d5'
+    newFile: !uuid 'c76249d979e0ee33628954383dc9776537041303'
+    oldFile: !uuid 'fa55319210a8809e7f4d32f94e962b75d014ac47'
   /pages/music:
-    newFile: !uuid 'f125a78edcbebccfb2028f111d7bf2fb1c3e4824'
-    oldFile: !uuid '430b8ea17ebee7022be36af60f79bd1f3900afdf'
-  /pages/music/model:
-    newFile: !uuid 'a34488265a65d7b71b2618a054b5ed18f1e487b2'
-    oldFile: !uuid '24ffcce175acb5aeac1520b62f9a936a9c684fd5'
-  /pages/music/model/components:
-    newFile: !uuid '0f5e1b634c4899c691a5ce5ebd8b0ccca3e3818d'
+    newFile: !uuid '109b0cdf51a5a6ab245a7da4a1fe58ce06f5efcb'
+    oldFile: !uuid 'f125a78edcbebccfb2028f111d7bf2fb1c3e4824'
+  /pages/music/utils:
+    newFile: !uuid 'a948fb58a87d31512ad98bdebe45d2a214eb6cb9'
+    oldFile: !uuid 'ffbaf9b7959c8271e5999920e4f93814bc744f34'
+  /pages/music/utils/server.js:
+    newFile: !uuid 'fe9f4a1cc4708e6366f7ad505d352a71caac1ef4'
+    oldFile: !uuid '84d18ce976501b39c4daa4d5223b16bb0431025a'
+  /static:
+    newFile: !uuid '4819c2e9e97f3d9e9422f27838f6262bbd4af841'
+    oldFile: !uuid '4b3fdcada8358de1b4c2b52af0e392ce5b425c8c'
+  /static/music:
+    newFile: !uuid '8c8c5192e6713611185d9495646254de76f45f85'
+    oldFile: !uuid 'ef31afb4320dfaa3806e83faf1c8c8619d5230da'
+  /static/music/i1.png:
+    newFile: !uuid '54a8bcb226533e9bd86b3eec8faf3e01f20e0521'
     oldFile: null
-  /pages/music/model/components/bing-lyric:
-    newFile: !uuid '5a335f4bad8279d7acecb84c7acde638e6dddfec'
+  /static/music/i2.png:
+    newFile: !uuid 'dd4dcedeb14f00381da788bfee8d9ae8828e0ddc'
     oldFile: null
-  /pages/music/model/components/bing-lyric/bing-lyric.vue:
-    newFile: !uuid '964c8c0d8a1faf66b74bcf40906bb9676b0eb0aa'
+  /static/music/icon.png:
+    newFile: !uuid '3e637b9c7c534fdbbf1b8f1b6f1243ad3fd6456b'
     oldFile: null
-  /pages/music/model/components/bing-lyric/btn.png:
-    newFile: !uuid '7c1fc12bff363db94d04ca2ac73fce80e821043c'
-    oldFile: null
-  /pages/music/model/components/cover-img-background.vue:
-    newFile: !uuid '38f7cccdfc36d034257e05fcb03925818ca7717d'
-    oldFile: null
-  /pages/music/model/components/musicGc.vue:
-    newFile: !uuid '69893b94d20a79fedb42c225f1ef40b832daae13'
-    oldFile: null
-gitCommitId: !uuid '40d8675a67ddc02f1ce7f5fa4333e82108b30fde'
+gitCommitId: !uuid '76abdced96b90370fc825aa342626666b4a33610'
 renames: {
   }
-revisionId: 14
+revisionId: 15
