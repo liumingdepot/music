@@ -4,7 +4,7 @@
       <view class="item" v-for="(item,index) in state.dataList" :key="index">
         <view class="disname">{{ item.disname }}</view>
         <view class="itemList">
-          <view class="item2" v-for="(item2,index2) in item.child" :key="index2" @click="gotoItem(item2)">
+          <view class="item2" v-for="(item2,index2) in item.child" :key="index2" @tap="gotoItem(item2)">
             <image :src="item2.pic5" class="pic"></image>
           </view>
         </view>
@@ -25,7 +25,11 @@ const state = reactive({
 })
 
 function queryList() {
+  if (uni.getStorageSync('musicPhbListAllStorage')) {
+    paging.value.complete(uni.getStorageSync('musicPhbListAllStorage'));
+  }
   musicPhbListAll().then(res => {
+    uni.setStorageSync('musicPhbListAllStorage', res.child);
     paging.value.complete(res.child);
   })
 }

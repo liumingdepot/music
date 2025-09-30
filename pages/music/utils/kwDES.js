@@ -392,6 +392,9 @@ function parseParamsToJson(paramsStr) {
   return result;
 }
 
+console.log(decrypt(`
+QTTCEVWADWjGHNKyqOt6peSJECe9IlwYOThEXM42tOPYqExp4opZfbWJ5C0gNFa1OkW4nGMSzsheIv12vGKYxEQJdVWvLULOFLKP5pzBz7HwnFbScG9nzEqYy7ziI0POZX6HtnsjmNyAHKTLkfgT5/wbpgl7Nxa5/IZ+aOO5B24p3UvMNTjIzYKkGkJuUGsCeCIG8+Oaf1aZ+A4aT7or9hsRpGv5EZZnXu7we7ZPNj7MBuIYy+OSnyQ7h9PBpTpCvN5Wm7nYA5652W77PsEkq0AyTjnXztdYpv2gWTB2SyIRwzfRMnIiU2yxs2+btb06Y90o3XTg2o+34gBfrnUd7w==
+`));
 
 // 导出供浏览器使用的函数
 export default {

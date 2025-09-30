@@ -2,9 +2,9 @@
   <view class="music">
     <Header v-model="state.navIndex"/>
     <Model1 v-if="state.navIndex == 0" @playList="playList2"/>
-<!--    <Model2 v-if="state.navIndex == 1" @playItem="playItem"/>-->
+    <Model2 v-if="state.navIndex == 1" @playList="playList3"/>
     <Model3 v-if="state.navIndex == 2" @playList="playList3"/>
-<!--    <Model4 v-if="state.navIndex == 3" @playItem="playItem"/>-->
+    <Model4 v-if="state.navIndex == 3" @playList="playList3"/>
     <Music ref="musicRef"/>
   </view>
 </template>
@@ -14,9 +14,9 @@ import {reactive,ref,onMounted} from 'vue'
 import Header from './model/header.vue'
 import Music from './model/music.vue'
 import Model1 from './model/model1.vue'
-// import Model2 from './model/model2.vue'
+import Model2 from './model/model2.vue'
 import Model3 from './model/model3.vue'
-// import Model4 from './model/model4.vue'
+import Model4 from './model/model4.vue'
 
 const musicRef = ref(null)
 const state = reactive({
@@ -26,7 +26,7 @@ const state = reactive({
 onMounted(()=>{
   const musicPlayList = uni.getStorageSync('musicPlayList')
   if(musicPlayList){
-    playList(musicPlayList,1)
+    playList(musicPlayList,2)
   }
 })
 
