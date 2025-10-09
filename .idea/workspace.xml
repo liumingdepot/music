@@ -30,7 +30,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "UniApp.dev:h5.executor": "Run",
-    "last_opened_file_path": "E:/dome/music/pages/music/model/components",
+    "last_opened_file_path": "E:/dome/music/pages/video/model",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -45,12 +45,22 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\dome\music\pages\video\model" />
+      <recent name="E:\dome\music\pages\video" />
       <recent name="E:\dome\music\pages\music\model\components" />
       <recent name="E:\dome\music\pages\music\model" />
       <recent name="E:\dome\music\static\music" />
-      <recent name="E:\dome\music\pages\music\utils" />
-      <recent name="E:\dome\music\pages\music" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev:h5" type="AppRunConfiguration" factoryName="AppRunConfiguration">
+      <option name="mpDescribeName" />
+      <option name="mpIdName" />
+      <option name="mpKeyName" />
+      <option name="mpVersionName" />
+      <option name="scriptName" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
