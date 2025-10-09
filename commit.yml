@@ -3,15 +3,81 @@ branches: {
   }
 fileChange:
   /.idea:
-    newFile: !uuid 'a3531605b0e3734bf13826b30cd3df128b5454b5'
-    oldFile: !uuid '5820877f2e0f8306ae594686cb3e8e1248d6d97c'
+    newFile: !uuid 'd5a16d3b25843013c60c23a978d9bccf2c71bb43'
+    oldFile: !uuid 'a3531605b0e3734bf13826b30cd3df128b5454b5'
   /.idea/inspectionProfiles:
-    newFile: null
-    oldFile: !uuid 'f2474cc0c10a12bcd7beb2dd6680c6cfc9aa4cb3'
+    newFile: !uuid '72a88bd73cc7512b23e32403606bed7fb7fd0841'
+    oldFile: null
   /.idea/inspectionProfiles/Project_Default.xml:
-    newFile: null
-    oldFile: !uuid 'ae438d61883e42de3ab6434f55e62fc4bf6b3e4b'
-gitCommitId: !uuid '71571dd1ab024e3170813f5493ae4f905a0b933a'
+    newFile: !uuid 'd06c6e95c0999b7f97abc0a3ed45b2b11e1c3918'
+    oldFile: null
+  /.idea/material_theme_project_new.xml:
+    newFile: !uuid '55b691b6f5d30874d1ff328f1a576351da9a29ef'
+    oldFile: !uuid 'a14469ace8d6fea87185ddc025653ff66c09299b'
+  /.idea/workspace.xml:
+    newFile: !uuid '1cc02dca7e7b7647543e6742197c956dc85e0908'
+    oldFile: !uuid '8cb9832ce5788be559d30177df2e34b31e50dc56'
+  /hybrid:
+    newFile: !uuid '40c0b9ff26758bbed49d5c785e894704a1dfb139'
+    oldFile: null
+  /hybrid/html:
+    newFile: !uuid 'f3d9322d85c97e582b853239e8ffee8c7d58a0a3'
+    oldFile: null
+  /hybrid/html/css:
+    newFile: !uuid '210927910d1e921f0c4ebd586dbf7b61f44cd4bd'
+    oldFile: null
+  /hybrid/html/css/index.min.css:
+    newFile: !uuid 'a201810d0b28709fb9b70b39a105a21ce7fa4f52'
+    oldFile: null
+  /hybrid/html/css/uni.js:
+    newFile: !uuid '1e5418c0738fbac7514b03c176b27410f9168fbd'
+    oldFile: null
+  /hybrid/html/index.html:
+    newFile: !uuid 'f3163c12613326010469112bcb518fdeac7c8d00'
+    oldFile: null
+  /hybrid/html/js:
+    newFile: !uuid '7ecec31c443163f27faf8599a4b4affb4a0e7ec2'
+    oldFile: null
+  /hybrid/html/js/hls.min.js:
+    newFile: !uuid 'fe251b8d37be0620bc8848da63b8079d9f4d1397'
+    oldFile: null
+  /hybrid/html/js/index.min.js:
+    newFile: !uuid '2ee84a836009b63c90706a64a86d7dae4079d0e5'
+    oldFile: null
+  /pages:
+    newFile: !uuid '2cae6e9b854bcdb741c21ae0241f96ed18cdc738'
+    oldFile: !uuid '2a25b06b63d794e65db7845c685421ae21b7606b'
+  /pages/video:
+    newFile: !uuid '286e0e1e12ce46c7bceb3bea31716d27f5d82fb0'
+    oldFile: !uuid 'e1c4a16c15c576dfbeed66408d82851f4444492c'
+  /pages/video/model:
+    newFile: !uuid 'c234a4e0736238e306a1cb4440a4ea758a2e664e'
+    oldFile: null
+  /pages/video/model/header.vue:
+    newFile: !uuid 'eece6e63ccdb118fe2588a5de57cafcad5d45df5'
+    oldFile: null
+  /pages/video/model/model1.vue:
+    newFile: !uuid '6ee00cb6792ff45e69d7b7f9008fed72a93de019'
+    oldFile: null
+  /pages/video/model/model2.vue:
+    newFile: !uuid 'e6221c767212050be8f9303e0cf2e7965a6decc9'
+    oldFile: null
+  /pages/video/utils:
+    newFile: !uuid 'fe392edfc71d7cf28188a4defce26f89642fb7bd'
+    oldFile: null
+  /pages/video/utils/getVideoList.js:
+    newFile: !uuid '4245edff983ea07066d070b07db979c0e3967e16'
+    oldFile: null
+  /pages/video/utils/navs.js:
+    newFile: !uuid '3d1ff5dc02efc53218a9ae98d097ee253b31b78c'
+    oldFile: null
+  /pages/video/utils/server.js:
+    newFile: !uuid '97eac8d594373e1942e889d0b3a640483da52be1'
+    oldFile: null
+  /pages/video/video.vue:
+    newFile: !uuid 'b9f0fe0402a6387d7cac304ce554943f77756986'
+    oldFile: !uuid 'e8782c5bd3df9ff31bc7a65b8f783a744a883fdf'
+gitCommitId: !uuid '21a85f22c30da25715d5f050bff27ac9f45cf892'
 renames: {
   }
-revisionId: 19
+revisionId: 20
