@@ -1,6 +1,30 @@
 import axios from '@/common/axios.js'
 import {getVideoList} from './getVideoList'
 
+
+/**
+ * 搜索
+ */
+export const searchVideo =  (key,num = 1) => {
+  const videoTypeList = [
+    {name: '量子', url: 'http://cj.lziapi.com/api.php/provide/vod/'},
+    {name: '新浪', url: 'http://api.xinlangapi.com/xinlangapi.php/provide/vod/'},
+  ]
+  console.log(key, num);
+  const url = `?ac=videolist&wd=${key}&pg=${num}`
+  return Promise.all([
+    axios({url:videoTypeList[0].url +  url}),
+    axios({url:videoTypeList[1].url +  url}),
+  ]).then(res=>{
+    const arr = []
+    for (let item of [...res[0].list, ...res[1].list]) {
+      item.vod_play_url_video = getVideoList(item)
+      arr.push(item)
+    }
+    return arr
+  })
+}
+
 /**
  * 推荐
  */
@@ -19,12 +43,24 @@ export const getTuijianVideo = (params) => {
   })
 }
 
+
 /**
- * 搜索
+ * 短剧
  */
-export const searchVideo = async (videoType) => {
-  const videoTypeList = [
-    {name: '量子', url: 'http://cj.lziapi.com/api.php/provide/vod/'},
-    {name: '新浪', url: 'http://api.xinlangapi.com/xinlangapi.php/provide/vod/'},
-  ]
+export const videoList = (num = 1) => {
+  return axios({
+    url: `http://cj.lziapi.com/api.php/provide/vod/?t=46&ac=videolist&pg=${num}`
+  }).then((res) => {
+    const arr = []
+    for (let item of res.list) {
+      item.vod_play_url_video = getVideoList(item, '量子资源')
+      item.typeUrl = [{
+        "url": "http://cj.lziapi.com/api.php/provide/vod/",
+        "type_id": 13,
+        "name": "量子"
+      }]
+      arr.push(item)
+    }
+    return arr
+  })
 }

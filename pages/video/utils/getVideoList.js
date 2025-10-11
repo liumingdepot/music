@@ -4,21 +4,17 @@
 export const getVideoList = (item, TYPENAME) => {
 	const types = item.vod_play_url.split('$$$')
 	const vidoes = types.map((val, index) => {
-		const title = TYPENAME + (index + 1)
 		if (val.includes('.m3u8') || val.includes('.mp4')) {
 			// 视频列表
 			const videoList = val.split('#')
-			return {
-				title,
-				videoList: videoList.map(val2 => {
-					// 名称 和 播放地址
-					const temp = val2.split('$')
-					return {
-						title: temp[0],
-						url: temp[1],
-					}
-				})
-			}
+			return videoList.map(val2 => {
+				// 名称 和 播放地址
+				const temp = val2.split('$')
+				return {
+					title: temp[0],
+					url: temp[1],
+				}
+			})
 		} else {
 			return false
 		}

@@ -1,6 +1,7 @@
 /**
  *  封装axios请求
  */
+
 const axios = (option) => {
   return uni.request({
     url: option.url,
@@ -8,7 +9,9 @@ const axios = (option) => {
     header: option.header,
     method: option.method || 'GET',
     dataType: 'json',
-  }).then(res => res.data)
+  }).then(res => {
+	  return res.data
+  })
 }
 
 export default axios

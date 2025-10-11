@@ -1,219 +1,66 @@
 <template>
   <view class="content">
-    <u-navbar title="搜索" bgColor="#d8f2d0" @leftClick="leftClick" placeholder ref="navBar"></u-navbar>
     <view class="search">
-      <u-input color="#333" v-model="searchValue" @clear="clear" clearable placeholder="想搜什么就搜吧~" border="none">
-        <image slot="prefix" src="/static/home/icons.png" class="icon"></image>
-        <view slot="suffix" class="btn" @tap="searchVideo">搜索</view>
-      </u-input>
+      <wd-input color="#333" v-model="state.searchValue" placeholder="想搜什么就搜吧~" no-border>
+        <template #prefix>
+          <image slot="prefix" src="/static/video/icons.png" class="icon"></image>
+        </template>
+        <template #suffix>
+          <view slot="suffix" class="btn" @tap="searchVideos">搜索</view>
+        </template>
+      </wd-input>
     </view>
-
-    <view v-if="showVideo" class="box">
-      <view class="leftBox" :style="{height:height+'px'}">
-        <scroll-view class="scrollY" :scroll-y="true" :style="{height:height+'px'}">
-          <view class="left_tilte">搜索选择</view>
-          <view class="item" v-for="(item, index) in videoTypeList" :key="index"
-                @click="checkboxChange(item)">
-            <image v-if="videoType.includes(item.name)" src="/static/home/active.png" mode="" class="icon">
-            </image>
-            <image v-else src="/static/home/no.png" mode="" class="icon"></image>
-            <view>{{ item.name }}</view>
-          </view>
-        </scroll-view>
-      </view>
-      <!-- 结果 -->
-      <scroll-view class="scrollY" :scroll-y="true" :style="{height:height+'px'}">
-        <!-- 视频详情 -->
-        <view class="mainBox">
-          <view v-for="(item,index) in videoList" class="item" @tap="goVideo(item)">
-            <image :src="item.vod_pic" type="image/webp" webp class="image" mode="aspectFill"></image>
-            <view class="tag">{{ item.type_name }}</view>
-            <view class="title">{{ item.vod_name }}</view>
-            <rich-text class="msg" style="margin-top: 8rpx;" :nodes="item.vod_remarks"></rich-text>
-          </view>
+    <z-paging ref="paging" v-model="state.videoList" @query="initVideoList" auto-show-back-to-top :fixed="false">
+      <!-- 视频详情 -->
+      <view class="mainBox">
+        <view v-for="(item,index) in state.videoList" class="item" @tap="goVideo(item)">
+          <image :src="item.vod_pic" type="image/webp" webp class="image" mode="aspectFill"></image>
+          <view class="tag">{{ item.type_name }}</view>
+          <view class="title">{{ item.vod_name }}</view>
+          <view class="msg" style="margin-top: 8rpx;">{{ item.vod_remarks }}</view>
         </view>
-      </scroll-view>
-      <view class="fy">
-        <u-icon name="arrow-left" v-if="num>1" @tap="changeNum(num - 1)" class="pg"></u-icon>
-        <u-icon name="arrow-right" @tap="changeNum(num + 1)" class="pg"></u-icon>
       </view>
-    </view>
+    </z-paging>
   </view>
 </template>
 
 <script setup>
 import {reactive, ref, onMounted} from 'vue'
+import {searchVideo} from "@/pages/video/utils/server";
 
+const emit = defineEmits(['playList'])
+const paging = ref(null)
 const state = reactive({
-  searchValue: '',
+  searchValue: '花千骨',
   videoList: [],
-  num: 1,
-  videoType: [],
-  showVideo: false,
-  showClose: false,
-  lishiList: [],
-  height: 800,
 })
 
-onMounted(() => {
-  const info = uni.getWindowInfo()
-  const top = parseInt(this.$refs.navBar.height)
-  state.height = info.windowHeight - info.statusBarHeight - top - uni.upx2px(220)
-})
-
-
-function checkboxChange(e) {
-  const videoType = uni.getStorageSync('videoType') || [];
-  const index = videoType.indexOf(e.name)
-  if (index == -1) {
-    videoType.push(e.name)
-  } else {
-    videoType.splice(index, 1)
-  }
-  uni.setStorageSync('videoType', videoType);
-  this.videoType = videoType
+function searchVideos() {
+  paging.value.reload();
 }
 
-function closeItem(item) {
-  const index = this.lishiList.indexOf(item)
-  if (index != -1) {
-    this.lishiList.splice(index, 1)
-    // 历史数据缓存
-    uni.setStorageSync('lishiList', [...new Set([...this.lishiList])]);
-  }
-}
-
-function clear() {
-  this.showVideo = false
-}
-
-function lishiVideo(value) {
-  this.searchValue = value
-  this.searchVideo()
-}
-
-function addLishi() {
-  this.lishiList.push(this.searchValue)
-  uni.setStorageSync('lishiList', [...new Set([...this.lishiList])]);
-  this.getLishi()
-}
-
-function leftClick() {
-  uni.switchTab({
-    url: '/pages/home/index'
+function initVideoList(num) {
+  searchVideo(state.searchValue, num).then(activeVideos => {
+    console.log(activeVideos);
+    paging.value.complete(activeVideos);
+  }).catch(res => {
+    paging.value.complete(false);
   })
 }
 
-function changeNum(num) {
-  this.num = num
-  this.showVideo = true
-  this.videoList = []
-  this.getVideo()
-}
-
-function searchVideo() {
-  this.showVideo = true
-  this.videoList = []
-  this.num = 1
-  this.getVideo()
-}
-
-async function getVideo() {
-  if (this.searchValue) {
-    this.addLishi()
-    const list = this.videoType.map(e => videoTypeList.find(v => v.name == e)).filter(Boolean)
-    for (let i = 0; i < list.length; i++) {
-      const videoType = list[i]
-      uni.showLoading({
-        mask: true,
-        title: '正在爬虫' + videoType.name,
-      })
-      videoType.src = videoType.url + `?ac=videolist&wd=${this.searchValue}&pg=${this.num}`
-      try {
-        const res = await searchVideo(videoType)
-        for (let item of res.list) {
-          const temp = this.videoList.find(e => e.vod_en == item.vod_en && e.vod_name == item
-              .vod_name)
-          if (temp) {
-            temp.vod_play_url_video = [
-              ...temp.vod_play_url_video,
-              ...getVideoList(item, videoType.name)
-            ]
-            temp.typeUrl = [
-              ...temp.typeUrl,
-              {
-                url: videoType.url,
-                type_id: item.type_id
-              }
-            ]
-          } else {
-            item.vod_play_url_video = getVideoList(item, videoType.name)
-            item.typeUrl = [{
-              url: videoType.url,
-              type_id: item.type_id,
-              name: videoType.name
-            }]
-            this.videoList.push(item)
-          }
-          this.videoList.sort((a, b) => {
-            if (a.vod_name == this.searchValue) {
-              return -1
-            }
-            if (b.vod_name == this.searchValue) {
-              return 1
-            }
-          })
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    uni.hideLoading()
-  } else {
-    uni.hideLoading()
-  }
-}
-
 function goVideo(item) {
-  uni.setStorage({
-    key: 'videoItem',
-    data: item,
-    success() {
-      uni.navigateTo({
-        url: '/pages/video/index'
-      })
-    }
-  });
+  emit('playList', item)
 }
 </script>
 
 
 <style scoped lang="scss">
 .content {
-  .fy {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 750rpx;
-    padding: 0 24rpx;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background: #1CC88E;
-
-    .pg {
-      padding: 24rpx;
-      padding-left: 48rpx;
-    }
-  }
+  height: calc(100vh - var(--status-bar-height) - var(--window-bottom) - 250rpx);
 
   .search {
     position: sticky;
     z-index: 999;
-    /* #ifndef H5 */
-    padding-top: var(--window-top);
-    /* #endif */
     top: 0;
     width: 694rpx;
     height: 80rpx;
@@ -225,7 +72,16 @@ function goVideo(item) {
     box-sizing: border-box;
     box-shadow: 0px 24rpx 40rpx 2rpx rgba(130, 245, 156, 0.18);
     border: 2rpx solid #3ABC56;
-    background-color: rgba(255, 255, 255, 0.5);
+
+    :deep(.wd-input) {
+      background: transparent;
+
+      .wd-input__value {
+        display: grid;
+        width: 654rpx;
+        grid-template-columns: 60rpx auto 140rpx;
+      }
+    }
 
     .icon {
       width: 30rpx;
@@ -233,12 +89,13 @@ function goVideo(item) {
     }
 
     .input {
+      width: 100%;
       font-size: 28rpx;
       color: #000;
     }
 
     .btn {
-      width: 140rpx;
+      width: 100%;
       height: 64rpx;
       background: linear-gradient(180deg, #41CB53 0%, #1CC88E 100%);
       border-radius: 40rpx;
@@ -249,127 +106,76 @@ function goVideo(item) {
     }
   }
 
-  .bianji {
-    padding: 0 24rpx;
-    padding-right: 30rpx;
-    font-size: 28rpx;
-    color: #2bc976;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .lishi {
-    width: 100vw;
-    box-sizing: border-box;
-    padding: 0 24rpx;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .box {
+  .mainBox {
     margin-top: 20rpx;
-    display: grid;
-    grid-template-columns: 214rpx auto;
-    padding: 0 26rpx;
-    grid-gap: 28rpx;
+    position: relative;
+    overflow: hidden;
 
-    .leftBox {
+    .item {
       width: 214rpx;
-      height: 100%;
-      background: #FFFFFF;
       border-radius: 16rpx;
+      margin-left: 28rpx;
+      margin-bottom: 28rpx;
+      float: left;
+      position: relative;
 
-      .scrollY {
-
-        .left_tilte {
-          width: 214rpx;
-          height: 84rpx;
-          font-size: 26rpx;
-          line-height: 84rpx;
-          text-align: center;
-          color: #999999;
-        }
-
-        .item {
-          width: 214rpx;
-          height: 84rpx;
-          font-size: 26rpx;
-          color: #333333;
-          display: grid;
-          grid-template-columns: 60rpx auto;
-          align-items: center;
-          padding: 0 30rpx;
-          box-sizing: border-box;
-
-          .icon {
-            width: 32rpx;
-            height: 32rpx;
-          }
-        }
-      }
-    }
-
-    .scrollY {
-      .mainBox {
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: 214rpx 214rpx;
-        grid-gap: 26rpx;
-        overflow: hidden;
-        box-sizing: border-box;
-
-        .item {
-          width: 100%;
-          border-radius: 16rpx;
-          position: relative;
-
-          .tag {
-            position: absolute;
-            right: 0;
-            top: 0;
-            color: #fff;
-            font-size: 26rpx;
-            padding: 8rpx;
-            background-color: rgba(49, 201, 108, 0.8);
-            border-radius: 8rpx;
-          }
-
-          .image {
-            width: 214rpx;
-            height: 306rpx;
-            border-radius: 16rpx;
-            background-image: url('/static/bgImage.gif');
-            background-repeat: no-repeat;
-            background-size: 100%;
-            background-position: center;
-            background-color: #000;
-          }
-
-          .title {
-            font-size: 26rpx;
-            width: 240rpx;
-            display: -webkit-box;
-            word-break: break-all;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2; //需要显示的行数
-            overflow: hidden;
-            text-overflow: ellipsis;
-            line-height: 1.5;
-          }
-
-          .msg {
-            font-size: 22rpx;
-            color: #82849A;
-            width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-          }
-        }
+      .tag {
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #fff;
+        font-size: 26rpx;
+        padding: 8rpx;
+        background-color: rgba(49, 201, 108, 0.8);
+        border-radius: 8rpx;
       }
 
+      .tag2 {
+        color: #fff;
+        font-size: 26rpx;
+        padding: 8rpx;
+        background-color: rgba(49, 201, 108, 0.8);
+        border-radius: 8rpx;
+      }
+
+
+      .image {
+        width: 100%;
+        height: 306rpx;
+        border-radius: 8rpx;
+        background-image: url('/static/bgImage.gif');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        background-color: #000;
+      }
+
+      .title {
+        font-size: 28rpx;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: 2;
+      }
+
+      .msg {
+        font-size: 22rpx;
+        color: #82849A;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+
+        .icon {
+          width: 30rpx;
+          height: 30rpx;
+          margin-right: 8rpx;
+          transform: translateY(1rpx);
+        }
+      }
     }
   }
 }

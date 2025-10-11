@@ -21,12 +21,12 @@ const navs = [
   {name: '搜索', id: 0},
   {name: '分类', id: 1},
   {name: '短剧', id: 2},
-  {name: 'xx', id: 3},
 ]
 </script>
 
 <style scoped lang="scss">
 .header {
+
   .status_bar {
     height: var(--status-bar-height);
   }
@@ -36,7 +36,7 @@ const navs = [
     justify-content: space-between;
     align-items: center;
     height: 100rpx;
-    padding: 0 80rpx;
+    padding: 0 180rpx;
 
     .item {
       font-size: 28rpx;

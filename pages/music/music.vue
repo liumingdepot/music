@@ -10,7 +10,8 @@
 </template>
 
 <script setup>
-import {reactive,ref,onMounted} from 'vue'
+import {reactive,ref,onMounted,onUnmounted } from 'vue'
+import {onHide} from "@dcloudio/uni-app";
 import Header from './model/header.vue'
 import Music from './model/music.vue'
 import Model1 from './model/model1.vue'
@@ -62,6 +63,10 @@ function playList(e,type){
     })
   }
 }
+
+onHide(()=>{
+  musicRef.value.closeFunc()
+})
 </script>
 
 <style>
@@ -69,8 +74,4 @@ page {
   background-image: url("/static/music/music.png");
   background-size: 100% 100%;
 }
-</style>
-
-<style scoped lang="scss">
-
 </style>

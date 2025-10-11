@@ -129,9 +129,14 @@ function changeIndex(type) {
   }
 }
 
+function closeFunc() {
+  innerAudioContext.stop();
+}
+
 //暴露函数父组件 ref
 defineExpose({
-  initPlayList
+  initPlayList,
+  closeFunc
 })
 </script>
 

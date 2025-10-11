@@ -37,6 +37,7 @@ import {navs} from '../utils/navs.js'
 import {getTuijianVideo} from '../utils/server'
 import {reactive, ref} from 'vue'
 
+const emit = defineEmits(['playList'])
 const paging = ref(null)
 const state = reactive({
   from: {
@@ -81,7 +82,7 @@ function initVideo(pagenum) {
 }
 
 function goVideo(item) {
-  console.log(item);
+  emit('playList',item)
 }
 </script>
 
@@ -89,7 +90,7 @@ function goVideo(item) {
 <style scoped lang="scss">
 .contentIndex {
   padding-bottom: 50rpx;
-  height: calc(100vh - var(--status-bar-height) - var(--window-bottom) - 110rpx);
+  height: calc(100vh - var(--status-bar-height) - var(--window-bottom) - 250rpx);
 
   .scrollView {
     padding: 10rpx 18rpx;

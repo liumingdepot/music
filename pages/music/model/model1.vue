@@ -1,6 +1,15 @@
 <template>
   <view class="model1">
-    <input type="text" class="search" placeholder="请输入歌曲名" v-model="state.searchValue" @input="queryLists">
+    <view class="search">
+      <wd-input color="#333" v-model="state.searchValue" placeholder="请输入歌曲名~" no-border>
+        <template #prefix>
+          <image slot="prefix" src="/static/video/icons.png" class="icon"></image>
+        </template>
+        <template #suffix>
+          <view slot="suffix" class="btn" @tap="queryLists">搜索</view>
+        </template>
+      </wd-input>
+    </view>
     <view class="list">
       <z-paging ref="paging" v-model="state.dataList" @query="queryList" :fixed="false">
         <view class="item" v-for="(item,index) in state.dataList" :key="index" @tap="gotoPlay(item)">
@@ -57,18 +66,54 @@ function gotoPlay(item) {
 <style lang="scss">
 .model1 {
   .search {
-    width: 690rpx;
-    margin: 0 auto;
-    box-sizing: border-box;
-    height: 64rpx;
+    position: sticky;
+    z-index: 999;
+    top: 0;
+    width: 694rpx;
+    height: 80rpx;
     border-radius: 40rpx;
-    padding: 0 20rpx;
+    margin: 24rpx auto;
+    display: flex;
+    align-items: center;
+    padding: 0 24rpx;
+    box-sizing: border-box;
     background: rgba(255, 255, 255, 0.5);
+
+    :deep(.wd-input){
+      background:transparent;
+      .wd-input__value{
+        display: grid;
+        width: 654rpx;
+        grid-template-columns: 60rpx auto 140rpx;
+      }
+    }
+
+    .icon {
+      width: 30rpx;
+      height: 30rpx;
+    }
+
+    .input {
+      width: 100%;
+      font-size: 28rpx;
+      color: #000;
+    }
+
+    .btn {
+      width: 100%;
+      height: 64rpx;
+      background: linear-gradient(180deg, #41CB53 0%, #1CC88E 100%);
+      border-radius: 40rpx;
+      color: #fff;
+      line-height: 64rpx;
+      text-align: center;
+      font-size: 26rpx;
+    }
   }
 
   .list {
     padding: 30rpx;
-    height: calc(100vh - var(--status-bar-height) - var(--window-bottom) - 100rpx - 64rpx - 60rpx);
+    height: calc(100vh - var(--status-bar-height) - var(--window-bottom) - 350rpx);
     // 隐藏滚动条
     ::-webkit-scrollbar {
       display: none;
