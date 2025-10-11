@@ -10,7 +10,6 @@ export const searchVideo =  (key,num = 1) => {
     {name: '量子', url: 'http://cj.lziapi.com/api.php/provide/vod/'},
     {name: '新浪', url: 'http://api.xinlangapi.com/xinlangapi.php/provide/vod/'},
   ]
-  console.log(key, num);
   const url = `?ac=videolist&wd=${key}&pg=${num}`
   return Promise.all([
     axios({url:videoTypeList[0].url +  url}),

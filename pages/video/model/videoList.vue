@@ -1,12 +1,6 @@
 <template>
   <view>
     <wd-action-sheet v-model="state.show">
-      <view class="navss">
-        <scroll-view scroll-x class="scroll" :show-scrollbar="false">
-          <view class="item" :class="current == index ? 'active':''" v-for="(item,index) in videoList"
-                @tap="changePicker(index)">{{item.title}}</view>
-        </scroll-view>
-      </view>
       <view style="padding: 24rpx;line-height: 1.5;">选集</view>
       <scroll-view class="scrollY" scroll-y="true">
         <!-- 电视剧 -->
@@ -54,40 +48,24 @@ watch(() => props.videoItem, (newValue, oldValue) => {
 function getVideoItem(e,i){
   console.log(e);
   state.jiIndex =  i
+  const videoList = {
+    url: e.url,
+    title: props.videoItem.vod_name + e.title,
+    poster: props.videoItem.vod_pic
+  }
+  uni.setStorage({
+    key: 'videoList',
+    data: videoList,
+    success() {
+      uni.navigateTo({
+        url: '/pages/video/videoPlay'
+      })
+    }
+  });
 }
 </script>
 
 <style scoped lang="scss">
-.navss {
-  padding-top: 20rpx;
-  padding-left: 20rpx;
-
-  .scroll {
-    white-space: nowrap;
-    width: 100%;
-
-    .item {
-      width: 148rpx;
-      height: 76rpx;
-      background: rgba(248, 248, 248, 1);
-      color: rgba(164, 164, 164, 1);
-      border-radius: 12rpx;
-      line-height: 76rpx;
-      text-align: center;
-      font-size: 26rpx;
-      display: inline-block;
-      margin-right: 20rpx;
-    }
-
-    .active {
-      background: rgba(41, 201, 120, 0.09);
-      border: 2rpx solid #29C978;
-      color: #29C978;
-    }
-  }
-}
-
-
 .scrollY {
   padding-bottom: 100rpx;
   height: 400rpx;

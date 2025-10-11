@@ -30,7 +30,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "UniApp.dev:h5.executor": "Run",
-    "last_opened_file_path": "E:/dome/music/static/video",
+    "last_opened_file_path": "E:/dome/music/pages/video",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -45,9 +45,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\dome\music\pages\video" />
       <recent name="E:\dome\music\static\video" />
       <recent name="E:\dome\music\pages\video\model" />
-      <recent name="E:\dome\music\pages\video" />
       <recent name="E:\dome\music\pages\music\model\components" />
       <recent name="E:\dome\music\pages\music\model" />
     </key>
