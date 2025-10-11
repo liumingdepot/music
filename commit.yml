@@ -2,31 +2,46 @@
 branches: {
   }
 fileChange:
+  /.idea:
+    newFile: !uuid 'c170529453816111554644f1123d8d31a40fcc06'
+    oldFile: !uuid '408a9474ced6a9896a64a4ff1638cf791887fe4b'
+  /.idea/workspace.xml:
+    newFile: !uuid 'e7529db7a75656c1ea7dcf873071b32b018fad71'
+    oldFile: !uuid '0c2381134c6632fcde067de25c01f6a7b52cf7c6'
+  /hybrid:
+    newFile: !uuid '8ff50cc61b253e8060beec63008ac66675eb7b3c'
+    oldFile: !uuid '40c0b9ff26758bbed49d5c785e894704a1dfb139'
+  /hybrid/html:
+    newFile: !uuid 'c9da0b44c6e8a58c813bb4540f498fe6280b1b56'
+    oldFile: !uuid 'f3d9322d85c97e582b853239e8ffee8c7d58a0a3'
+  /hybrid/html/index.html:
+    newFile: !uuid '8e145ae0aa721af9ab78963267818921c5934173'
+    oldFile: !uuid 'f3163c12613326010469112bcb518fdeac7c8d00'
   /pages:
-    newFile: !uuid '0ae068ff11afe4199a72a1d1ff92a3d1f8df0785'
-    oldFile: !uuid '52d51f8817e8d61e237526708b4ec560f81a9dee'
+    newFile: !uuid '0d3abe56b40730d27623e1925494c219cc1f7291'
+    oldFile: !uuid '0ae068ff11afe4199a72a1d1ff92a3d1f8df0785'
+  /pages.json:
+    newFile: !uuid '26f0be425c6a4cbaab0cab2396eb48358a1896dc'
+    oldFile: !uuid '9036ee09c8e6624cd0b15042bc71d06fbaa1188a'
   /pages/video:
-    newFile: !uuid '2292bad497410bea66f24c25a92974d86852e701'
-    oldFile: !uuid '1ddfeb47770a4c428cf095ef4c869f9cbb2f5ea4'
+    newFile: !uuid '1fe978bbfd9bda812b78dec6d6c7239b786cbc25'
+    oldFile: !uuid '2292bad497410bea66f24c25a92974d86852e701'
   /pages/video/model:
-    newFile: !uuid 'e7a2b4cb173d55984ac41b73dce509533f434545'
-    oldFile: !uuid '42948daa95c94f1b6ef46a846089b8887d00d890'
-  /pages/video/model/model3.vue:
-    newFile: !uuid '55c2611c31a0d92342a299c9fdaed7a1be715b61'
-    oldFile: null
+    newFile: !uuid '2d932757deab20f1b055014b52609a5249df7521'
+    oldFile: !uuid 'e7a2b4cb173d55984ac41b73dce509533f434545'
   /pages/video/model/videoList.vue:
-    newFile: !uuid '1f0730455b23409deb53f79c40ceeb8d4325b928'
+    newFile: !uuid 'c54d4d9bc1273f7eff480bbdbfc86acb02725e4d'
+    oldFile: !uuid '1f0730455b23409deb53f79c40ceeb8d4325b928'
+  /pages/video/utils:
+    newFile: !uuid '38726a95f526d968c55f48d350a02c3d694e71fa'
+    oldFile: !uuid 'db9728eff938d21f6f43c08c18dfff6d68a28d8f'
+  /pages/video/utils/server.js:
+    newFile: !uuid 'b48cd4b43d694f6981699a108d9b9beddc31c2d2'
+    oldFile: !uuid '5d2f5b43d661a332a78e89d38c3b2dc3b50e5f65'
+  /pages/video/videoPlay.vue:
+    newFile: !uuid 'a58a338d4feee7393e18483eaac3c6db9d663b80'
     oldFile: null
-  /static:
-    newFile: !uuid 'ce0dc1f7356387b7d969a21d1afd1f27027d921c'
-    oldFile: !uuid 'b39ad774e73b8ac64a8328602fca9d34d3fcf836'
-  /static/video:
-    newFile: !uuid '20238f1875374705f7c8e18056995f2f5032fcae'
-    oldFile: !uuid '94879999db0c9007a3c2df040f00a6ac3949dac5'
-  /static/video/icons.png:
-    newFile: !uuid 'e5dc1a4ae628ca2489a2e5ae12cf30fd8841ee2d'
-    oldFile: null
-gitCommitId: !uuid '4fe45be66b6315076f90fc8a33d045465864507a'
+gitCommitId: !uuid '23e409b038cdceb6fbc26c3d6e8d4f530a37fbae'
 renames: {
   }
-revisionId: 22
+revisionId: 23
